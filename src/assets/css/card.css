@@ -1,0 +1,104 @@
+.price {
+    color: #C6202E;
+    font-weight: 700;
+    font-size: 1.2em;
+    font-family: "Oswald", sans-serif;
+}
+
+.add-cart {
+    color: #C6202E;
+    border: 1px solid;
+    padding-top: 10px;
+
+    &:hover{
+        background-color: #5b1017;
+        color: white;
+    }
+}
+
+.products {
+    .card {
+        border: 2px dashed rgba(128, 128, 128, 0.229);
+        transition: all 0.3s ease;
+        align-items: center;
+        position: relative;
+
+        .add {
+            display: none;
+        }
+
+        &:hover {
+            .add {
+                position: absolute;
+                top: 0;
+                width: 100%;
+                height: 50%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                z-index: 1;
+                gap: 7px;
+
+                .add-btn {
+                    color: #C6202E;
+                    background-color: white;
+                    border-radius: 50px;
+                    padding: 10px 17px;
+                    font-size: 1.3em;
+                    transition: all 0.4s ease;
+
+                    &:hover {
+                        color: white;
+                        background-color: #C6202E;
+                    }
+                }
+
+            }
+
+            border-color: #C6202E;
+
+            .add-cart {
+                background-color: #C6202E;
+                color: white !important;
+            }
+
+            .card-img-top {
+                transform: scale(1.1);
+            }
+        }
+
+        overflow: hidden;
+
+        .card-img-top {
+            width: 70%;
+            transition: all 0.3s ease;
+        }
+
+        .card-body {
+            text-align: center;
+
+            .card-text {
+                color: grey;
+            }
+
+            .card-title {
+                font-family: "Oswald", sans-serif;
+            }
+
+
+
+            .btn {
+                border: 1px solid rgba(128, 128, 128, 0.393);
+                border-radius: 50px;
+                padding: 10px 25px;
+                font-weight: 500;
+                color: #C6202E;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 5px;
+
+            }
+        }
+    }
+}

@@ -8,19 +8,23 @@ import { CiFries } from "react-icons/ci";
 import Card from '../components/Card';
 import axios from 'axios';
 import { ProductContext } from '../context/ProductContext';
+import { LangContext } from '../context/LangContext';
+import { ThemeContext } from '../context/ThemeContext';
 
 const Home = () => {
-   const {product}= useContext(ProductContext);
+    const { product } = useContext(ProductContext);
+    const [lang] = useContext(LangContext);
+    const [theme] = useContext(ThemeContext);
 
     return (
-        <main>
+        <main className={theme}>
             <div className="main-first-sect">
                 <div className="main-first-sect-center">
                     <img style={{ width: '60%', height: '65%' }} src="https://demothemedh.b-cdn.net/piizalian/wp-content/uploads/2021/04/revslider_h1_shape.png" alt="" />
                     <div className="center-text">
-                        <p>FAST FOOD RESTAURANT</p>
-                        <h2>Always fresh and Tasty</h2>
-                        <button className='order-btn'><SlBasket /> Order Now</button>
+                        <p>{lang === "EN" ? "FAST FOOD RESTORANI" : "FAST FOOD RESTAURANT"}</p>
+                        <h2>{lang === "EN" ? "Həmişə yeni və Dadlı" : "Always fresh and Tasty"}</h2>
+                        <button className='order-btn'><SlBasket />{lang === "EN" ? "Indi Sifariş et" : "Order Now"}</button>
                     </div>
                 </div>
             </div>
@@ -88,8 +92,8 @@ const Home = () => {
                                 <div className="box-body">
                                     <span>Fast Food</span>
                                     <h4>American <br /> Burgers</h4>
-                                    <span>Bringing People Together</span>
-                                    <button className='order-btn scnd-btn'><SlBasket /> Order Now</button>
+                                    <span>{lang === "EN" ? "İnsanları bir yerə gətirir" : "Bringing people together"}</span>
+                                    <button className='order-btn scnd-btn'><SlBasket /> {lang === "EN" ? "Indi Sifariş et" : "Order Now"}</button>
                                 </div>
                                 <div className="frst-box-img">
                                     <img src="https://demothemedh.b-cdn.net/piizalian/wp-content/uploads/2021/03/h1_img-1.png" alt="" />
@@ -105,8 +109,8 @@ const Home = () => {
                                 <div className="box-body">
                                     <span>Hot Fresh</span>
                                     <h4>Salats <br /> Taste</h4>
-                                    <span>New Super Delicious</span>
-                                    <button className='order-btn scnd-btn'><SlBasket /> Order Now</button>
+                                    <span>{lang === "EN" ? "Yeni Super Dadlı" : "New Super Delicious"}</span>
+                                    <button className='order-btn scnd-btn'><SlBasket />{lang === "EN" ? "Indi Sifariş et" : "Order Now"}</button>
                                 </div>
 
                                 <img src="" alt="" />
@@ -118,9 +122,9 @@ const Home = () => {
 
             <div className="main-last-sect">
                 <div className="last-sect-title">
-                    <span>CHOOSE YOUR FLAVOR</span>
-                    <h3>THE BEST PIZZA MENU IN TOWN</h3>
-                    <span className='mini-text'>There’s always something interesting down here</span>
+                    <span>{lang === "EN" ? "ÖZ TƏAMINI SEÇ" : "CHOOSE YOUR FLAVOR"}</span>
+                    <h3>{lang === "EN" ? "QƏSƏBƏDƏKİ ƏN DADLI PİZZA MENYUSU" : "THE BEST PIZZA MENU IN TOWN"}</h3>
+                    <span className='mini-text'>{lang === "EN" ? "Burada həmişə maraqlı bir şey var" : "There’s always something interesting down here"}</span>
                 </div>
 
                 <div className="products-sect">
@@ -130,14 +134,6 @@ const Home = () => {
                                 <Card key={item.id} alldata={item} />
                             ))}
 
-                            {/* <Card pimg='https://demothemedh.b-cdn.net/piizalian/wp-content/uploads/2019/12/p1-600x600.jpg' ptext='FANTASTIC IRON SHOES' pprice='$101.00 - $187.00' />
-                            <Card pimg='https://demothemedh.b-cdn.net/piizalian/wp-content/uploads/2019/12/p2-600x600.jpg' ptext='SLEEK IRON CLOCK' pprice='$107.00 - $198.00' />
-                            <Card pimg='https://demothemedh.b-cdn.net/piizalian/wp-content/uploads/2019/12/p10-600x600.jpg' ptext='GORGEOUS SILK PLATE' pprice='$100.00 - $194.00' />
-                            <Card pimg='https://demothemedh.b-cdn.net/piizalian/wp-content/uploads/2019/09/p3-600x600.jpg' ptext='FANTASTIC MARBLE BAG' pprice='$104.00 - $198.00' />
-                            <Card pimg='https://demothemedh.b-cdn.net/piizalian/wp-content/uploads/2019/12/p1-600x600.jpg' ptext='FANTASTIC IRON SHOES' pprice='$101.00 - $187.00' />
-                            <Card pimg='https://demothemedh.b-cdn.net/piizalian/wp-content/uploads/2019/12/p2-600x600.jpg' ptext='SLEEK IRON CLOCK' pprice='$107.00 - $198.00' />
-                            <Card pimg='https://demothemedh.b-cdn.net/piizalian/wp-content/uploads/2019/12/p10-600x600.jpg' ptext='GORGEOUS SILK PLATE' pprice='$100.00 - $194.00' />
-                            <Card pimg='https://demothemedh.b-cdn.net/piizalian/wp-content/uploads/2019/09/p3-600x600.jpg' ptext='FANTASTIC MARBLE BAG' pprice='$104.00 - $198.00' /> */}
                         </div>
                     </div>
                 </div>

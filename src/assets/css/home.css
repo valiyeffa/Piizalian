@@ -1,4 +1,16 @@
+.dark{
+    --bgColorMain: #353531;
+    --textColorMain: white;
+}
+
+.light{
+    --bgColorMain: white;
+    --textColorMain: black;
+}
+
 main {
+    background-color: var(--bgColorMain);
+    color: var(--textColorMain);
     .main-first-sect {
         width: 100%;
         height: 80vh;

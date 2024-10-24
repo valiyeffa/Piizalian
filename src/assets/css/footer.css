@@ -1,6 +1,26 @@
-.footer{
+.footer {
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
+    background-color: var(--bgColorMain);
+    color: var(--textColorMain);
+
+    ul {
+        li {
+            a {
+                color: var(--textColorMain);
+            }
+        }
+    }
+}
+
+.dark {
+    --bgColorMain: #353531;
+    --textColorMain: white;
+}
+
+.light {
+    --bgColorMain: white;
+    --textColorMain: black;
 }

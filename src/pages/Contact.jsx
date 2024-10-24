@@ -1,12 +1,17 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { LangContext } from '../context/LangContext';
+import { ThemeContext } from '../context/ThemeContext';
 
 const Contact = () => {
+   const [lang]= useContext(LangContext);
+   const [theme] = useContext(ThemeContext);
+
     return (
-        <main>
+        <main className={theme}>
             <div className="contact-sect">
                 <div className="contact-sect-title-text">
-                    <h2>Contact Us</h2>
-                    <p>Any questions of remarks? Just wirte us a message!</p>
+                    <h2>{lang==="EN"?"Bizimlə Əlaqə Saxla":"Contact Us"}</h2>
+                    <p>{lang==="EN"?"Hər hansı sualınız var? Sadəcə bizə mesaj yazın!":"Any questions of remarks? Just wirte us a message!"}</p>
                 </div>
 
                 <div className="contact-sect-login container">
@@ -48,10 +53,10 @@ const Contact = () => {
                                         </div>
                                     </div>
                                     <div className="remember">
-                                        <input type="radio" />
-                                        <label htmlFor="saveinput">Save my name, email, and website in this browser for the next time I comment.</label> <br />
+                                        <input type="checkbox" />
+                                        <label htmlFor="saveinput">{lang==="EN"?"Növbəti dəfə şərh yazmaq üçün adımı, e-poçtumu və vebsaytımı bu brauzerdə yadda saxlayın.":"Save my name, email, and website in this browser for the next time I comment."}</label> <br />
                                     </div>
-                                    <button className='send-btn' type='submit'>Send Message</button>
+                                    <button className='send-btn' type='submit'>{lang==="EN"?"Mesaj Göndər":"Send Message"}</button>
                                 </form>
                             </div>
                         </div>

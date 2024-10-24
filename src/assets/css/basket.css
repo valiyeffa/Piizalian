@@ -1,0 +1,69 @@
+.basket {
+    color: #000;
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 1;
+    transform: translateX(100%);
+    transition: .4s;
+    height: 100vh;
+    overflow-y: auto;
+    width: 30%;
+
+    .head {
+        h2 {
+            font-family: "Oswald", serif;
+            letter-spacing: 0.1px;
+        }
+    }
+
+    .rubish-bin {
+        border: none;
+        background-color: transparent;
+        color: grey;
+        font-size: 20px;
+    }
+
+    .cart {
+        margin: 15px;
+    }
+
+    .bottom-total {
+        margin: 15px;
+        display: flex;
+        justify-content: space-between;
+
+        .total-text {
+            p {
+                font-weight: 700;
+                font-family: "Oswald", serif;
+            }
+        }
+
+        .total-price {
+            p {
+                color: #C6202E;
+                font-weight: 700;
+                font-family: "Oswald", serif;
+                font-size: 20px;
+            }
+        }
+    }
+}
+
+.overlay {
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, .7);
+    opacity: 1;
+    position: fixed;
+    z-index: 1;
+}
+
+.open {
+    transform: translateX(0);
+}
+
+body {
+    overflow-x: hidden;
+}

@@ -1,4 +1,4 @@
-.active{
+.active {
     color: #D6E664 !important;
 }
 
@@ -6,6 +6,9 @@ header {
     width: 100%;
     background-color: #C6202E;
     color: white;
+    position: sticky;
+    z-index: 2;
+    top: 0;
 
 
     .header-head {
@@ -23,17 +26,15 @@ header {
                 align-items: center;
                 gap: 10px;
 
-                .country {
-                    form {
-                        select {
-                            border: none;
-                            background-color: #C6202E;
-                            color: white;
-
-                        }
+                .language , .theme{
+                    .lang-btn , .theme-btn {
+                        border: none;
+                        box-shadow: 1px 1px 1px 2px rgba(0, 0, 0, 0.41);
+                        background-color: transparent;
+                        color: white;
+                        font-weight: 600;
                     }
                 }
-
             }
         }
     }
@@ -41,6 +42,7 @@ header {
     nav {
         background-color: #C6202E;
         color: white;
+
 
         .collapse {
             justify-content: space-around;
@@ -53,7 +55,7 @@ header {
                         color: white;
                         font-weight: 700;
 
-                        &:hover{
+                        &:hover {
                             color: #D6E664;
                         }
                     }
@@ -61,6 +63,18 @@ header {
             }
 
             .collapse-right-side {
+                display: flex;
+                align-items: center;
+
+                .modal-title {
+                    color: #C6202E;
+                }
+
+                .search-btn {
+                    background-color: #C6202E;
+                    color: white;
+                }
+
                 a {
                     color: white;
                     text-decoration: none;
@@ -70,10 +84,15 @@ header {
 
                 .items-btn {
                     border: none;
+                    font-size: 1.1em;
                     background-color: #D6E664;
-                    padding: 14px 18px;
+                    padding: 13px 20px;
                     border-radius: 50px;
                     font-weight: 500;
+                    color: black;
+                    display: flex;
+                    align-items: center;
+                    gap: 5px;
                 }
             }
         }

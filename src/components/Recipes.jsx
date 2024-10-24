@@ -1,13 +1,19 @@
-import axios from 'axios';
+ import axios from 'axios';
 import React, { useContext, useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom';
 import { SlBasket } from "react-icons/sl";
 import { ProductContext } from '../context/ProductContext';
+import slugify from 'slugify';
+import { LangContext } from '../context/LangContext';
+import { useCart } from 'react-use-cart';
+import swal from 'sweetalert';
 
 const Recipes = () => {
     const { id } = useParams();
     const { product } = useContext(ProductContext);
-    const findProduct = product.find(p => p.id.toString() === id);
+    const findProduct = product.find(p => slugify(p.name, { lower: true }) === id);
+    const [lang] = useContext(LangContext);
+    const { addItem } = useCart();
 
     return (
         <div style={{ display: 'flex', justifyContent: 'center' }}>
@@ -18,11 +24,11 @@ const Recipes = () => {
                     </div>
                     <div className="col-lg-6">
                         <h1 className="display-5 fw-bold text-body-emphasis lh-1 mb-3">{findProduct.name}</h1>
-                        <p className="lead">{findProduct.ingredients}</p>
-                        <p className="price">${findProduct.caloriesPerServing}</p>
+                        <p className="lead">{findProduct.description}</p>
+                        <p className="price">${findProduct.price}</p>
                         <div className="d-grid gap-2 d-md-flex justify-content-md-start">
-                            <Link to='/shop' type="button" style={{ backgroundColor: '#C6202E', color: 'white', fontWeight: '600'}} className="btn btn-lg px-4 me-md-2">Back to page</Link>
-                            <a href="#" className="btn add-cart"><SlBasket /> Add to cart</a>
+                            <Link to='/shop' type="button" style={{ backgroundColor: '#C6202E', color: 'white', fontWeight: '600' }} className="btn btn-lg px-4 me-md-2">{lang === "EN" ? "Geri qayıt" : "Back to page"}</Link>
+                            <button className="btn add-cart" onClick={()=>{swal("Product added","","success"), addItem(findProduct)}} ><SlBasket /> {lang === "EN" ? "Karta əlavə et" : "Add to cart"}</button>
                         </div>
                     </div>
                 </div>

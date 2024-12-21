@@ -85,7 +85,7 @@ const Header = () => {
                             <button className='lang-btn' onClick={() => {
                                 lang === "AZ" ? setLang('EN') : setLang('AZ');
                                 lang === "AZ" ? localStorage.setItem('lang', 'EN') : localStorage.setItem('lang', 'AZ');
-                            }}>{lang}</button>
+                            }}>{lang==="AZ"? "EN": "AZ"}</button>
                         </div>
                         <div className="theme">
                             <button className='theme-btn' onClick={() => {
